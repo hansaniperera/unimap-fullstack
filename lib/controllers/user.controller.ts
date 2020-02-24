@@ -24,7 +24,7 @@ export class UserController {
             req.body.username &&
             req.body.password &&
             req.body.usertype) {
-            console.log("ww");
+        
                 const user_params : IUser ={
                     firstname: req.body.firstname,
                     middlename: req.body.middlename,

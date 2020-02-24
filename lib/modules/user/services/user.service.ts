@@ -11,5 +11,18 @@ export class UserService {
         user.save(callback);
     }
 
+    public updateUser(user_params: any, callback: any){
+        const query = {uuid:user_params.uuid};
+        users.findOneAndUpdate(query,user_params,callback)
+
+    }
+
+    public getByUuid(uuid:String, callback: Function){
+        const query = {uuid:uuid.toString()};
+        users.findOne(query,callback);
+       
+
+    }
+
 
 }
