@@ -21,7 +21,12 @@ export class UserService {
         const query = {uuid:uuid.toString()};
         users.findOne(query,callback);
        
+    }
 
+    public getByUsername(username:String, callback: Function){
+        const query = {username:username.toString()};
+        users.findOne(query,callback);
+       
     }
 
 

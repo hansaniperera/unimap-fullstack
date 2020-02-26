@@ -14,7 +14,6 @@ class LoggedUserController {
             uuid: req.body.uuid
         };
         this.user.getByUuid(req.body.uuid, (err, user_data) => {
-            console.log(user_data);
             if (err) {
                 res.status(111).json("Error");
             }
@@ -30,6 +29,23 @@ class LoggedUserController {
                         res.status(200).json("user updated");
                     }
                 });
+            }
+        });
+    }
+    //get uuid of logged user
+    getUuid(req, res) {
+        this.user.getByUsername(req.body.username, (err, user_data) => {
+            if (err) {
+                res.status(111).json("Error");
+            }
+            else if (user_data === null) {
+                res.status(111).json("User doesn't exist");
+            }
+            else {
+                if (req.body.password === user_data.password) {
+                    user_data.uuid;
+                    console.log(user_data.uuid);
+                }
             }
         });
     }

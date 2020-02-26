@@ -1,4 +1,3 @@
-//  This schema is used for creating a user in fum-database
 import * as mongoose from 'mongoose';
 
 

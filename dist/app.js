@@ -4,13 +4,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const user_routes_1 = require("./routes/user.routes");
 const mongoose = require("mongoose");
+const course_routes_1 = require("./routes/course.routes");
 class App {
     constructor() {
-        this.routePrv = new user_routes_1.User();
+        this.routePrv1 = new user_routes_1.User();
+        this.route2 = new course_routes_1.Course();
         this.mongoUrl = 'mongodb://localhost/Unimapdb';
         this.app = express();
         this.config();
-        this.routePrv.routes(this.app);
+        this.routePrv1.routes(this.app);
+        this.route2.routes(this.app);
         this.mongoSetup();
     }
     config() {

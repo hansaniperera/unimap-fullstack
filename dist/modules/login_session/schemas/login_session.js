@@ -30,5 +30,5 @@ const schema = new Schema({
         default: false
     }
 });
-exports.default = mongoose.model('vehicle_login_session_logs', schema);
+exports.default = mongoose.model('login_session', schema);
 //# sourceMappingURL=login_session.js.map

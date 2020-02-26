@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//  This schema is used for creating a user in fum-database
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const schema = new Schema({

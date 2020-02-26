@@ -32,4 +32,4 @@ const schema = new Schema({
    }
 });
 
-export default mongoose.model('vehicle_login_session_logs', schema);
+export default mongoose.model('login_session', schema);

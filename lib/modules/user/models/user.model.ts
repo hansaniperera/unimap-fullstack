@@ -1,12 +1,7 @@
 
 
-export interface IGetAllUserResponse {
-    count: Number;
-    data: IUser[];
-}
-
 export interface IUser {
-    // vehicle Information
+
     uuid: String;
     firstname: String;
     middlename: String;

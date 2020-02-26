@@ -17,6 +17,10 @@ class UserService {
         const query = { uuid: uuid.toString() };
         user_schema_1.default.findOne(query, callback);
     }
+    getByUsername(username, callback) {
+        const query = { username: username.toString() };
+        user_schema_1.default.findOne(query, callback);
+    }
 }
 exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map

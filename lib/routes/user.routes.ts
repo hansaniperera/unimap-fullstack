@@ -1,10 +1,10 @@
-import {Request, Response} from "express";
+import {Request, Response, Application} from "express";
 import { UserLoginController } from "../controllers/user.login.controller";
 import { UserController } from "../controllers/user.controller";
 import { LoggedUserController } from "../controllers/loggedUser.controller";
 
 export class User {       
-    public routes(app): void {          
+    public routes(app : Application){          
         app.route('/login').post((req: Request, res: Response) => {            
             new UserLoginController().login(req, res);
     

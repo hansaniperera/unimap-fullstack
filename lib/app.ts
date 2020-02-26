@@ -2,17 +2,20 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { User } from "./routes/user.routes";
 import * as mongoose from "mongoose";
+import { Course } from "./routes/course.routes";
 
 class App {
 
     public app: express.Application;
-    public routePrv: User = new User();
+    public routePrv1: User = new User();
+    public route2: Course = new Course();
     public mongoUrl: string = 'mongodb://localhost/Unimapdb';
 
     constructor() {
         this.app = express();
         this.config(); 
-        this.routePrv.routes(this.app);
+        this.routePrv1.routes(this.app);
+        this.route2.routes(this.app);
         this.mongoSetup();      
     }
 
