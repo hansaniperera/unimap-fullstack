@@ -10,9 +10,16 @@ class CourseService {
         const query = { course_id: course_params.course_id };
         course_schema_1.default.findOneAndUpdate(query, course_params, callback);
     }
-    getById(course_id, callback) {
+    getByCourseId(course_id, callback) {
         const query = { course_id: course_id.toString() };
         course_schema_1.default.findOne(query, callback);
+    }
+    delete_selected_course(course_params, callback) {
+        const query = { course_id: course_params.course_id };
+        course_schema_1.default.deleteOne(query, callback);
+    }
+    getAll(callback) {
+        course_schema_1.default.find({}, callback);
     }
 }
 exports.CourseService = CourseService;

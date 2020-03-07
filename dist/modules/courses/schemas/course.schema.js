@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const schema = new Schema({
     course_id: {
-        type: Number,
+        type: String,
         unique: true,
         required: true
     },

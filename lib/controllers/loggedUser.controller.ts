@@ -3,10 +3,13 @@ import { Request, Response, response } from 'express';
 import { UserController } from "./user.controller";
 import { UserService } from "../modules/user/services/user.service";
 import { IUser } from "modules/user/models/user.model";
+import { LoginSessionService } from "../modules/login_session/services/login_session.service";
+import { ILoginSession } from "modules/login_session/models/login_session.model";
 
 export class LoggedUserController {
 
     private user = new UserService();
+    private loggingSession = new LoginSessionService();
 
     public update_profile(req: Request, res: Response) {
 
@@ -57,5 +60,19 @@ export class LoggedUserController {
 
         });
 
+    }
+
+    public validate_logged_user(req: Request, res: Response, next: Function){
+               this.loggingSession.getByToken(req.token,(err:any,logged_data : ILoginSession) =>{
+            if (err) {
+                res.status(111).json("Error");
+            } else if(logged_data === null) {
+                res.status(111).json("data doesn't exist");
+            }else{
+                next(logged_data);
+                console.log(logged_data);
+            }
+
+        });
     }
 }

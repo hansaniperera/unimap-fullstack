@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 //import hash = require('sha1');
 import { IUser } from 'modules/user/models/user.model';
 import { UserController } from './user.controller';
-import { LoginSessionService } from '../modules/login_session/services/login_session';
+import { LoginSessionService } from '../modules/login_session/services/login_session.service';
 
 
 

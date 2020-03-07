@@ -8,6 +8,7 @@ class UserService {
     createUser(user_params, callback) {
         const user = new user_schema_1.default(user_params);
         user.save(callback);
+        //console.log("hhh");
     }
     updateUser(user_params, callback) {
         const query = { uuid: user_params.uuid };

@@ -9,6 +9,7 @@ export class UserService {
     public createUser(user_params: IUser, callback: any) {
         const user = new users(user_params);
         user.save(callback);
+        //console.log("hhh");
     }
 
     public updateUser(user_params: any, callback: any){

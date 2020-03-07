@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_service_1 = require("../modules/user/services/user.service");
+const login_session_service_1 = require("../modules/login_session/services/login_session.service");
 class LoggedUserController {
     constructor() {
         this.user = new user_service_1.UserService();
+        this.loggingSession = new login_session_service_1.LoginSessionService();
     }
     update_profile(req, res) {
         const user_params = {
@@ -46,6 +48,20 @@ class LoggedUserController {
                     user_data.uuid;
                     console.log(user_data.uuid);
                 }
+            }
+        });
+    }
+    validate_logged_user(req, res, next) {
+        this.loggingSession.getByToken(req.token, (err, logged_data) => {
+            if (err) {
+                res.status(111).json("Error");
+            }
+            else if (logged_data === null) {
+                res.status(111).json("data doesn't exist");
+            }
+            else {
+                next(logged_data);
+                console.log(logged_data);
             }
         });
     }

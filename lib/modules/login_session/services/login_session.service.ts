@@ -1,4 +1,4 @@
-import login_session from '../schemas/login_session';
+import login_session from '../schemas/login_session.schema';
 
 export class LoginSessionService {
 
@@ -9,6 +9,14 @@ export class LoginSessionService {
         }
         var login_session_ = new login_session(login_params);
         login_session_.save(callback);
+    }
+
+    public getByToken(login_token: String, callback: Function) {
+        var query = {
+            login_token: login_token,
+            is_expired: false
+        };
+        login_session.findOne(query, callback);
     }
 
 }

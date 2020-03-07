@@ -33,7 +33,9 @@ class UserController {
                 password: req.body.password,
                 uuid: req.body.uuid
             };
+            console.log("www");
             this.user_service.createUser(user_params, (err) => {
+                console.log(user_params);
                 if (err) {
                     res.status(111).json("register denied");
                 }

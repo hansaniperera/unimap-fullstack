@@ -9,7 +9,7 @@ export class Course {
                    
         app.post('/course/new', (req: Request, res: Response) => {
             this.course.add_new_course(req, res);
-          
+            
         });
 
         // Update course

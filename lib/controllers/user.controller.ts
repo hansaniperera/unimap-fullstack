@@ -18,13 +18,14 @@ export class UserController {
     }
 
     public register_user(req: Request, res: Response) {
+        
         if (req.body.firstname &&
             req.body.middlename &&
             req.body.lastname &&
             req.body.username &&
             req.body.password &&
             req.body.usertype) {
-        
+                
                 const user_params : IUser ={
                     firstname: req.body.firstname,
                     middlename: req.body.middlename,
@@ -36,8 +37,10 @@ export class UserController {
                     password: req.body.password,
                     uuid: req.body.uuid
                 }
+                console.log("www");
 
                 this.user_service.createUser(user_params,(err: any)=> {
+                    console.log(user_params);
                     if(err){
                         res.status(111).json("register denied"); 
                     }else{

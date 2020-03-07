@@ -7,7 +7,7 @@ export class User {
     public routes(app : Application){          
         app.route('/login').post((req: Request, res: Response) => {            
             new UserLoginController().login(req, res);
-    
+                
         }) 
 
         app.post('/user/register', (req: Request, res: Response) => {

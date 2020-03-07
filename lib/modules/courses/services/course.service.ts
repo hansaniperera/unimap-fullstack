@@ -15,9 +15,19 @@ export class CourseService {
         
     }
 
-    public getById(course_id:String,callback:any){
-        const query = {course_id:course_id.toString()}
+    public getByCourseId(course_id:String, callback: Function){
+        const query = {course_id: course_id.toString()};
         courseSchema.findOne(query,callback);
-        
+       
+    }
+
+    public delete_selected_course(course_params:ICourse,callback:any){
+        const query = {course_id:course_params.course_id}
+        courseSchema.deleteOne(query,callback);
+
+    }
+
+    public getAll(callback:any) {
+        courseSchema.find({},callback);
     }
 }

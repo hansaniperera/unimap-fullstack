@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_controller_1 = require("./user.controller");
-const login_session_1 = require("../modules/login_session/services/login_session");
+const login_session_service_1 = require("../modules/login_session/services/login_session.service");
 class UserLoginController {
     constructor() {
         this.user_controller = new user_controller_1.UserController();
-        this.login_session = new login_session_1.LoginSessionService();
+        this.login_session = new login_session_service_1.LoginSessionService();
     }
     login(req, res) {
         if (req.body.username && req.body.password) {
@@ -16,7 +16,7 @@ class UserLoginController {
                         console.log(req.body.password);
                         if (user.password === req.body.password) {
                             var login_token = this.user_controller.generateRandomKey();
-                            new login_session_1.LoginSessionService().loginUser(login_token, req.body.uuid, (err) => {
+                            new login_session_service_1.LoginSessionService().loginUser(login_token, req.body.uuid, (err) => {
                                 if (err) {
                                     res.status(111).json("Login denied");
                                 }
