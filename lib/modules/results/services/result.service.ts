@@ -3,8 +3,7 @@ import resultSchema from "../schemas/result.schema";
 
 export class ResultService {
 
-    private resultSchema = new resultSchema();
-
+    
     public enter_new_result(result_params: IResult,callback : any){
         const result = resultSchema(result_params);
         result.save(callback);
@@ -19,6 +18,24 @@ export class ResultService {
 
     public getByResultId(result_id:String, callback: Function){
         const query = {result_id: result_id.toString()};
+        resultSchema.findOne(query,callback);
+       
+    }
+
+    public getByCourseId(course_id:String, callback: Function){
+        const query = {course_id: course_id.toString()};
+        resultSchema.findOne(query,callback);
+       
+    }
+
+    public getByYear(year:String, callback: Function){
+        const query = {year: year.toString()};
+        resultSchema.findOne(query,callback);
+       
+    }
+
+    public getByStudentId(student_id:String, callback: Function){
+        const query = {student_id: student_id.toString()};
         resultSchema.findOne(query,callback);
        
     }
