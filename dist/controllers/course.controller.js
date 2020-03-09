@@ -12,7 +12,6 @@ class CourseController {
     }
     add_new_course(req, res) {
         if (req.body.course_id && req.body.course_name) {
-            console.log("ttttt");
             const course_params = {
                 course_id: req.body.course_id,
                 course_name: req.body.course_name,
@@ -28,6 +27,9 @@ class CourseController {
                     res.status(200).json("course added");
                 }
             });
+        }
+        else {
+            res.status(200).json("Insufficent inputs ");
         }
     }
     update_course(req, res) {

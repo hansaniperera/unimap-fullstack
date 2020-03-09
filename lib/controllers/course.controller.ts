@@ -16,7 +16,6 @@ export class CourseController {
     public add_new_course(req: Request, res: Response) {
 
         if (req.body.course_id && req.body.course_name) {
-            console.log("ttttt");
             const course_params: ICourse = {
                 course_id: req.body.course_id,
                 course_name: req.body.course_name,
@@ -36,6 +35,8 @@ export class CourseController {
             });
 
 
+        }else {
+            res.status(200).json("Insufficent inputs ");
         }
 
     }

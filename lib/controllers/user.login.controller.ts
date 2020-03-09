@@ -24,6 +24,7 @@ public login(req: Request, res: Response) {
                     console.log(user.password);
                     console.log(req.body.password);
                     if(user.password === req.body.password){
+                        console.log("rrr");
                         var login_token = this.user_controller.generateRandomKey();
                             new LoginSessionService().loginUser(login_token,req.body.uuid,(err: any) => {
                             if(err){

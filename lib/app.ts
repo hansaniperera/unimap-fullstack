@@ -4,12 +4,14 @@ import { User } from "./routes/user.routes";
 import * as mongoose from "mongoose";
 import { Course } from "./routes/course.routes";
 import * as bearerToken from "express-bearer-token";
+import { Result } from "./routes/result.route";
 
 class App {
 
     public app: express.Application;
     public routePrv1: User = new User();
     public routeCourse: Course = new Course();
+    public routeResult: Result = new Result();
     public mongoUrl: string = 'mongodb://localhost/Unimapdb';
 
     constructor() {
@@ -17,6 +19,7 @@ class App {
         this.config(); 
         this.routePrv1.routes(this.app);
         this.routeCourse.routes(this.app);
+        this.routeResult.routes(this.app);
         this.mongoSetup();      
     }
 

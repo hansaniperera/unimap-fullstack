@@ -15,6 +15,7 @@ class UserLoginController {
                         console.log(user.password);
                         console.log(req.body.password);
                         if (user.password === req.body.password) {
+                            console.log("rrr");
                             var login_token = this.user_controller.generateRandomKey();
                             new login_session_service_1.LoginSessionService().loginUser(login_token, req.body.uuid, (err) => {
                                 if (err) {

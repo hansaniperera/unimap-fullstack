@@ -4,20 +4,23 @@ import resultSchema from "../schemas/result.schema";
 export class ResultService {
 
     
-    public enter_new_result(result_params: IResult,callback : any){
+    public enterNewResult(result_params: IResult,callback : any){
         const result = resultSchema(result_params);
         result.save(callback);
 
     }
 
-    public update_selected_result(result_params:any,callback:any){
+    public updateSelectedResult(result_params:any,callback:any){
         const query = {result_id:result_params.course_id}
         resultSchema.findOneAndUpdate(query,result_params,callback);
         
     }
 
-    public getByResultId(result_id:String, callback: Function){
-        const query = {result_id: result_id.toString()};
+    public getById(student_id :String, year: String,course_id:String, callback: Function){
+        const query = {course_id: course_id.toString(),
+                       student_id: student_id.toString(),
+                       year: year.toString()
+                       };
         resultSchema.findOne(query,callback);
        
     }

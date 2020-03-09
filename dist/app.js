@@ -6,15 +6,18 @@ const user_routes_1 = require("./routes/user.routes");
 const mongoose = require("mongoose");
 const course_routes_1 = require("./routes/course.routes");
 const bearerToken = require("express-bearer-token");
+const result_route_1 = require("./routes/result.route");
 class App {
     constructor() {
         this.routePrv1 = new user_routes_1.User();
         this.routeCourse = new course_routes_1.Course();
+        this.routeResult = new result_route_1.Result();
         this.mongoUrl = 'mongodb://localhost/Unimapdb';
         this.app = express();
         this.config();
         this.routePrv1.routes(this.app);
         this.routeCourse.routes(this.app);
+        this.routeResult.routes(this.app);
         this.mongoSetup();
     }
     config() {
